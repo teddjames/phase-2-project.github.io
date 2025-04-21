@@ -1,0 +1,60 @@
+{
+    "featured": [
+      {
+        "id": 1,
+        "make": "Tesla",
+        "model": "Model S",
+        "year": 2023,
+        "price": 89990,
+        "image": "/images/featured/tesla-model-s.jpg",
+        "isFeatured": true
+      },
+      {
+        "id": 2,
+        "make": "Porsche",
+        "model": "911",
+        "year": 2022,
+        "price": 120000,
+        "image": "/images/featured/porsche-911.jpg",
+        "isFeatured": true
+      },
+      {
+        "id": 3,
+        "make": "Bentley",
+        "model": "Bentley continental",
+        "year": 2019,
+        "price": 1200000,
+        "image": "/images/featured/Bentley-continental.jpg",
+        "isFeatured": true
+      },
+      {
+        "id": 4,
+        "make": "random",
+        "model": "mercedes",
+        "year": 2019,
+        "price": 1200000,
+        "image": "/images/featured/merc.jpg",
+        "isFeatured": true
+      }
+    ],
+    "inventory": [
+      {
+        "id": 3,
+        "make": "Toyota",
+        "model": "Camry",
+        "year": 2022,
+        "price": 24999,
+        "image": "/images/inventory/toyota-camry.jpg",
+        "isFeatured": false
+      },
+      {
+        "id": 4,
+        "make": "Honda",
+        "model": "Civic",
+        "year": 2023,
+        "price": 22999,
+        "image": "/images/inventory/honda-civic.jpg",
+        "isFeatured": false
+      }
+    ]
+  }
