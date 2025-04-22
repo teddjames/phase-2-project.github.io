@@ -1,67 +1,79 @@
 import React,{ useState,useEffect } from 'react';
-import carData from '../data/carData.json'
+import NavBar from './NavBar';
 
 function Homepage() {
-   const [cars, setCars] = useState([
-       { id: 1, make: 'Toyota', model: 'Camry', year: 2022, price: 24999, image: 'https://via.placeholder.com/300x200?text=Toyota+Camry', likes: 0 },
-       { id: 2, make: 'Honda', model: 'Civic', year: 2023, price: 22999, image: 'https://via.placeholder.com/300x200?text=Honda+Civic', likes: 0 },
-       { id: 3, make: 'Ford', model: 'Mustang', year: 2021, price: 34999, image: 'https://via.placeholder.com/300x200?text=Ford+Mustang', likes: 0 }
-     ]);
+  // Set an empty state first
+   const [cars, setCars] = useState([]);
 
-    useEffect(() => {
-        const savedLikes = JSON.parse(localStorage.getItem('carLikes')) || {};
-        setCars(carData.featured.map(car => ({
-          ...car,
-          likes: savedLikes[car.id] || 0
-        })));
-      }, []);
+  //Use useEffect to fetch the data from the json-server, instead of hardcoding it
+
+  useEffect(() => {
+    fetch(`http://localhost:3000/featured`)
+    .then(r => r.json())
+    .then(data => setCars(data))
+    .catch(error => console.error(error))
+   }, [])
     
-      const handleLike = (carId) => {
-        setCars(prevCars => {
-          const updatedCars = prevCars.map(car => 
-            car.id === carId ? { ...car, likes: car.likes + 1 } : car
-          );
-          
-          // Save to localStorage
-          const likesToSave = {};
-          updatedCars.forEach(car => {
-            likesToSave[car.id] = car.likes;
-          });
-          localStorage.setItem('carLikes', JSON.stringify(likesToSave));
-          
-          return updatedCars;
-        });
-      };
-    
+   function handleLike(carId){
+    const carToUpdate = cars.find(car => car.id === carId);
+    if (!carToUpdate) return;
+  
+    const updatedLikes = carToUpdate.likes + 1;
+  
+    //Updates state
+    setCars(prevCars =>
+      prevCars.map(car =>
+        car.id === carId ? { ...car, likes: updatedLikes } : car
+      )
+    );
+  
+    // PATCH Request for the updated car
+    fetch(`http://localhost:4000/featured/${carId}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ likes: updatedLikes })
+    })
+      .then(r => r.json())
+      .then(updatedCar => {
+        setCars(prevCars =>
+          prevCars.map(car =>
+            car.id === updatedCar.id ? updatedCar : car
+          )
+        );
+      })
+      .catch(error => console.error(error));
+  }
+   
   return (
-    <div className="homepage">
-      <h2>Welcome to Auto-World</h2>
-      <p className="subtitle">Your trusted car dealership</p>
-      <div className="featured-section">
-        <h3>Featured Vehicles</h3>
-        {/* We'll add FeaturedCars here later */}
-        <div className='featured-gird'>
-            {
-                cars.map(car => (
-                    <div key={car.id} className='featured-card'>
-                        <img src={car.image} alt={`${car.make} ${car.model}`}/>
-                        <h3>{car.year} {car.make} {car.model}</h3>
-                        <p>${car.price.toLocaleString()}</p>
-                        <div className='like-section'>
-                            <button 
-                                className='like-btn'
-                                onClick={()=>handleLike(car.id)}
-                                >
-                            ♥ {car.likes}
-                            </button>
-                            {/*<span className='like-count'>{car.likes}</span>*/}
+        <div className="homepage">
+          <h2>Welcome to Auto-World</h2>
+          <p className="subtitle">Your trusted car dealership</p>
+          <h3>Featured Vehicles</h3>
+          <div className="featured-section">
+            {/* We'll add FeaturedCars here later */}
+            <div className='featured-grid'>
+                {
+                    cars.map(car => (
+                        <div key={car.id} className='featured-card'>
+                            <img src={car.image} alt={`${car.make} ${car.model}`}/>
+                            <h3>{car.year} {car.make} {car.model}</h3>
+                            <p>${car.price.toLocaleString()}</p>
+                            <div className='like-section'>
+                                <button 
+                                    className='like-btn'
+                                    onClick={()=>handleLike(car.id)}
+                                    >
+                                ♥ {car.likes}
+                                </button>
+                            </div>
                         </div>
-                    </div>
-                ))
-            }
+                    ))
+                }
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
   );
 }
 

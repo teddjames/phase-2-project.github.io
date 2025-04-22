@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import carData from '../data/carData.json'
+import NavBar from './NavBar';
 
 function Inventory() {
   const [allCars, setAllCars] = useState([]);
@@ -9,15 +9,12 @@ function Inventory() {
   const [maxPrice, setMaxPrice] = useState('');
 
   // Initialize cars and load likes
-  useEffect(() => {
-    const savedLikes = JSON.parse(localStorage.getItem('carLikes')) || {};
-    const carsWithLikes = carData.inventory.map(car => ({
-      ...car,
-      likes: savedLikes[car.id] || 0
-    }));
-    setAllCars(carsWithLikes);
-    setFilteredCars(carsWithLikes);
-  }, []);
+    useEffect(() => {
+      fetch(`http://localhost:3000/inventory`)
+      .then(r => r.json())
+      .then(data => setAllCars(data))
+      .catch(error => console.error(error))
+     }, [])
 
   // Filter cars based on search/filters
   useEffect(() => {
@@ -59,6 +56,7 @@ function Inventory() {
 
   return (
     <div className="inventory">
+      <NavBar />
       <h2>Our Inventory</h2>
       
       {/* Search/Filter Bar */}
