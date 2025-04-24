@@ -1,17 +1,17 @@
 {
   "featured": [
     {
-      "id": 1,
+      "id": "80ee69b9-954a-459c-9990-ffb4747514ea",
       "make": "Tesla",
       "model": "Model S",
       "year": 2023,
       "price": 89990,
       "image": "/images/featured/tesla-model-s.jpg",
       "isFeatured": true,
-      "likes": 0
+      "likes": 37
     },
     {
-      "id": 2,
+      "id": "b4f99c33-9554-46ce-bc7c-2a2454d83844",
       "make": "Porsche",
       "model": "911",
       "year": 2022,
@@ -21,7 +21,7 @@
       "likes": 0
     },
     {
-      "id": 3,
+      "id": "0d3a0083-3bd4-44c4-af62-bc17b60d9f57",
       "make": "Bentley",
       "model": "Bentley continental",
       "year": 2019,
@@ -31,7 +31,7 @@
       "likes": 0
     },
     {
-      "id": 4,
+      "id": "ddedc496-db26-438c-94c0-a17690ecde79",
       "make": "random",
       "model": "mercedes",
       "year": 2019,
@@ -41,7 +41,7 @@
       "likes": 0
     },
     {
-      "id": 5,
+      "id": "4d6160b6-1e26-4023-9952-9b67c42ca77d",
       "make": "Toyota",
       "model": "Camry",
       "year": 2022,
@@ -50,7 +50,7 @@
       "likes": 0
     },
     {
-      "id": 6,
+      "id": "3e6ccb66-36a4-47de-a67e-6f94f9038a71",
       "make": "Honda",
       "model": "Civic",
       "year": 2023,
@@ -59,7 +59,7 @@
       "likes": 0
     },
     {
-      "id": 7,
+      "id": "0c0168a1-e0ca-4a59-9d2a-47d3f829d4f0",
       "make": "Ford",
       "model": "Mustang",
       "year": 2021,
@@ -70,7 +70,7 @@
   ],
   "inventory": [
     {
-      "id": 3,
+      "id": "4d6160b6-1e26-4023-9952-9b67c42ca77d",
       "make": "Toyota",
       "model": "Camry",
       "year": 2022,
@@ -79,7 +79,7 @@
       "isFeatured": false
     },
     {
-      "id": 4,
+      "id": "3e6ccb66-36a4-47de-a67e-6f94f9038a71",
       "make": "Honda",
       "model": "Civic",
       "year": 2023,

@@ -29,14 +29,20 @@ function App() {
 
   // Like handler: PATCH /featured/:id
   function handleLike(id) {
-    const car = featured.find(c => c.id === id);
-    if (!car) return;
+    let car = featured.find(c => c.id === id);
+    const fromFeatured = !!car;
+  
+    if (!car) {
+      car = garage.find(c => c.id === id || c.originalId === id);
+      if (!car) return;
+    }
+  
     const updated = { ...car, likes: car.likes + 1 };
-
-    // Optimistically update UI
-    setFeatured(prev => prev.map(c => c.id === id ? updated : c));
-
-    fetch(`http://localhost:3000/featured/${id}`, {
+  
+    // PATCH the backend (either featured or garage)
+    const endpoint = fromFeatured ? `featured/${id}` : `garage/${car.id}`;
+  
+    fetch(`http://localhost:3000/${endpoint}`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ likes: updated.likes })
@@ -46,10 +52,23 @@ function App() {
         return r.json();
       })
       .then(data => {
-        setFeatured(prev => prev.map(c => c.id === data.id ? data : c));
+        // Update featured if the car exists there
+        setFeatured(prev =>
+          prev.map(c => c.id === data.id ? { ...c, likes: data.likes } : c)
+        );
+  
+        // Update garage if the car exists there
+        setGarage(prev =>
+          prev.map(c =>
+            c.id === data.id || c.originalId === data.id
+              ? { ...c, likes: data.likes }
+              : c
+          )
+        );
       })
-      .catch(error => console.error('Error updating likes:', error));
+      .catch(error => console.error('Error updating like:', error));
   }
+  
 
   // Add to garage: POST new record with car data
   function handleAddToGarage(id) {
@@ -61,7 +80,7 @@ function App() {
     const carToSave = {
       ...car,
       originalId: car.id,   // Keep track of where it came from
-      id: uuidv4()          // Assign a new unique ID for the DB
+      id: car.id         // Assign a new unique ID for the DB
     };
   
     fetch('http://localhost:3000/garage', {
