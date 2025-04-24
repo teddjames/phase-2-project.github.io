@@ -1,90 +1,91 @@
 {
-    "featured": [
-      {
-        "id": 1,
-        "make": "Tesla",
-        "model": "Model S",
-        "year": 2023,
-        "price": 89990,
-        "image": "/images/featured/tesla-model-s.jpg",
-        "isFeatured": true,
-        "likes": 0 
-      },
-      {
-        "id": 2,
-        "make": "Porsche",
-        "model": "911",
-        "year": 2022,
-        "price": 120000,
-        "image": "/images/featured/porsche-911.jpg",
-        "isFeatured": true,
-        "likes": 0 
-      },
-      {
-        "id": 3,
-        "make": "Bentley",
-        "model": "Bentley continental",
-        "year": 2019,
-        "price": 1200000,
-        "image": "/images/featured/Bentley-continental.jpg",
-        "isFeatured": true,
-        "likes": 0 
-      },
-      {
-        "id": 4,
-        "make": "random",
-        "model": "mercedes",
-        "year": 2019,
-        "price": 1200000,
-        "image": "/images/featured/merc.jpg",
-        "isFeatured": true,
-        "likes": 0 
-      },
-      { 
-        "id": 5, 
-        "make": "Toyota", 
-        "model": "Camry", 
-        "year": 2022, 
-        "price": 24999, 
-        "image": "/images/inventory/toyota-camry.jpg", 
-        "likes": 0
-      },
-      { "id": 6, 
-        "make": "Honda",
-        "model": "Civic",
-        "year": 2023, 
-        "price": 22999, 
-        "image": "/images/inventory/honda-civic.jpg",
-        "likes": 0 
-      },
-      { 
-        "id": 7,
-        "make": "Ford",
-        "model": "Mustang",
-        "year": 2021,
-        "price": 34999,
-        "image": "/images/featured/ford-mustang.jpeg",
-        "likes": 0 
-      }
-    ],
-    "inventory": [
-      {
-        "id": 3,
-        "make": "Toyota",
-        "model": "Camry",
-        "year": 2022,
-        "price": 24999,
-        "image": "/images/inventory/toyota-camry.jpg",
-        "isFeatured": false
-      },
-      {
-        "id": 4,
-        "make": "Honda",
-        "model": "Civic",
-        "year": 2023,
-        "price": 22999,
-        "image": "/images/inventory/honda-civic.jpg",
-        "isFeatured": false
-      }
-    ]
-  }
+  "featured": [
+    {
+      "id": "1",
+      "make": "Tesla",
+      "model": "Model S",
+      "year": 2023,
+      "price": 89990,
+      "image": "/images/featured/tesla-model-s.jpg",
+      "isFeatured": true,
+      "likes": 0
+    },
+    {
+      "id": "2",
+      "make": "Porsche",
+      "model": "911",
+      "year": 2022,
+      "price": 120000,
+      "image": "/images/featured/porsche-911.jpg",
+      "isFeatured": true,
+      "likes": 2
+    },
+    {
+      "id": "3",
+      "make": "",
+      "model": "Bentley continental",
+      "year": 2019,
+      "price": 1200000,
+      "image": "/images/featured/Bentley-continental.jpg",
+      "isFeatured": true,
+      "likes": 0
+    },
+    {
+      "id": "4",
+      "make": "random",
+      "model": "mercedes",
+      "year": 2019,
+      "price": 1200000,
+      "image": "/images/featured/merc.jpg",
+      "isFeatured": true,
+      "likes": 0
+    },
+    {
+      "id": "5",
+      "make": "Toyota",
+      "model": "Camry",
+      "year": 2022,
+      "price": 24999,
+      "image": "/images/inventory/toyota-camry.jpg",
+      "likes": 0
+    },
+    {
+      "id": "6",
+      "make": "Honda",
+      "model": "Civic",
+      "year": 2023,
+      "price": 22999,
+      "image": "/images/inventory/honda-civic.jpg",
+      "likes": 0
+    },
+    {
+      "id": "7",
+      "make": "Ford",
+      "model": "Mustang",
+      "year": 2021,
+      "price": 34999,
+      "image": "/images/featured/ford-mustang.jpeg",
+      "likes": 0
+    }
+  ],
+  "inventory": [
+    {
+      "id": "3",
+      "make": "Toyota",
+      "model": "Camry",
+      "year": 2022,
+      "price": 24999,
+      "image": "/images/inventory/toyota-camry.jpg",
+      "isFeatured": false
+    },
+    {
+      "id": "4",
+      "make": "Honda",
+      "model": "Civic",
+      "year": 2023,
+      "price": 22999,
+      "image": "/images/inventory/honda-civic.jpg",
+      "isFeatured": false
+    }
+  ]
+}

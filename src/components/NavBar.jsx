@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom'
 
 function NavBar() {
   return (
+  <div className='navBar'>
     <nav>
       <NavLink
         to="/"
@@ -19,6 +20,7 @@ function NavBar() {
         About
       </NavLink>
     </nav>
+  </div>
   )
 }
 

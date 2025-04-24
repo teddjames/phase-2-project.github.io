@@ -7,6 +7,7 @@ function Inventory() {
   const [searchTerm, setSearchTerm] = useState('');
   const [minPrice, setMinPrice] = useState('');
   const [maxPrice, setMaxPrice] = useState('');
+  const [ cart,setCart ] = useState([])
 
   // Initialize cars and load likes
     useEffect(() => {
@@ -36,24 +37,63 @@ function Inventory() {
     
     setFilteredCars(results);
   }, [searchTerm, minPrice, maxPrice, allCars]);
-//like feature
-  const handleLike = (carId) => {
-    setAllCars(prevCars => {
-      const updatedCars = prevCars.map(car => 
-        car.id === carId ? { ...car, likes: car.likes + 1 } : car
-      );
-      
-      // Update localStorage
-      const likesToSave = {};
-      updatedCars.forEach(car => {
-        likesToSave[car.id] = car.likes;
-      });
-      localStorage.setItem('carLikes', JSON.stringify(likesToSave));
-      
-      return updatedCars;
-    });
-  };
 
+//like feature
+  useEffect(() => {
+      fetch(`http://localhost:3000/featured`)
+      .then(r => r.json())
+      .then(data => setAllCars(data))
+      .catch(error => console.error(error))
+     }, [])
+      
+     function handleLike(carId){
+      const carToUpdate = cars.find(car => car.id === carId);
+      if (!carToUpdate) return;
+    
+      const updatedLikes = carToUpdate.likes + 1;
+    
+      //Updates state
+      setAllCars(prevCars =>
+        prevCars.map(car =>
+          car.id === carId ? { ...car, likes: updatedLikes } : car
+        )
+      );
+    
+      // PATCH Request for the updated car
+      fetch(`http://localhost:3000/featured/${carId}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ likes: updatedLikes })
+      })
+        .then(r => r.json())
+        .then(updatedCar => {
+          setAllCars(prevCars =>
+            prevCars.map(car =>
+              car.id === updatedCar.id ? updatedCar : car
+            )
+          );
+        })
+        .catch(error => console.error(error));
+    }
+  //Add to cart feature
+  const handleToggleCart = (car) => {
+    const isInCart = cart.some(item => item.id === car.id);
+  
+    let updatedCart;
+    if (isInCart) {
+      updatedCart = cart.filter(item => item.id !== car.id);
+      console.log('Removed from in cart')
+    } else {
+      updatedCart = [...cart, car];
+      console.log("Added to cart")
+    }
+  
+    setCart(updatedCart);
+    localStorage.setItem('cart', JSON.stringify(updatedCart));
+  };
+  
   return (
     <div className="inventory">
       <NavBar />
@@ -97,6 +137,7 @@ function Inventory() {
               alt={`${car.year} ${car.make} ${car.model}`} 
               className="car-image"
             />
+            
             <div className="car-details">
               <h3>{car.year} {car.make} {car.model}</h3>
               <p className="price">${car.price.toLocaleString()}</p>
@@ -108,6 +149,15 @@ function Inventory() {
                 >
                   ♥ {car.likes}
                 </button>
+                { /*Add to cart feature */}
+              <button 
+                  className={`car-button ${cart.some(item => item.id === car.id) ? 'remove-from-cart-btn' : 'add-to-cart-btn'}`}
+                  onClick={()=>handleToggleCart(car)}
+              >
+              <span className='add-to-cart'>
+                { cart.some(item => item.id === car.id) ? 'Remove from cart' : 'Add to cart'}
+              </span>
+              </button>
               </div>
             </div>
           </div>

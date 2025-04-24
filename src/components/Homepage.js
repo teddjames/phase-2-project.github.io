@@ -1,5 +1,4 @@
 import React,{ useState,useEffect } from 'react';
-import NavBar from './NavBar';
 
 function Homepage() {
   // Set an empty state first
@@ -28,7 +27,7 @@ function Homepage() {
     );
   
     // PATCH Request for the updated car
-    fetch(`http://localhost:4000/featured/${carId}`, {
+    fetch(`http://localhost:3000/featured/${carId}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json"
@@ -59,7 +58,7 @@ function Homepage() {
                         <div key={car.id} className='featured-card'>
                             <img src={car.image} alt={`${car.make} ${car.model}`}/>
                             <h3>{car.year} {car.make} {car.model}</h3>
-                            <p>${car.price.toLocaleString()}</p>
+                            {/*<p>${car.price.toLocaleString()}</p>*/}
                             <div className='like-section'>
                                 <button 
                                     className='like-btn'
