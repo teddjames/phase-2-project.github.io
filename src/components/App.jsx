@@ -1,4 +1,3 @@
-import { v4 as uuidv4 } from 'uuid';
 import React, { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import NavBar from './NavBar';
@@ -79,8 +78,8 @@ function App() {
   
     const carToSave = {
       ...car,
-      originalId: car.id,   // Keep track of where it came from
-      id: car.id         // Assign a new unique ID for the DB
+      originalId: car.id, 
+      id: car.id        
     };
   
     fetch('http://localhost:3000/garage', {
