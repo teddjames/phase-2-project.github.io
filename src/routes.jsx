@@ -1,8 +1,8 @@
-import { createBrowserRouter } from "react-router-dom";
 import App from "./components/App";
 import Homepage from "./components/Homepage";
 import Inventory from "./components/Inventory";
 import AboutUs from "./components/AboutUs";
+import Garage from "./components/Garage";
 
 const routes = [
     {
@@ -16,6 +16,10 @@ const routes = [
     {
         path: "/inventory",
         element: <Inventory />
+    },
+    {
+        path: "/garage",
+        element: <Garage />
     },
     {
         path: "/about",
