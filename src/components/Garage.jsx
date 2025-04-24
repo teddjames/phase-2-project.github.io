@@ -27,3 +27,4 @@ function Garage({ garage = [], onLike, onRemove }) {
 }
 
 export default Garage;
+

@@ -1,3 +1,4 @@
+import { v4 as uuidv4 } from 'uuid';
 import React, { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import NavBar from './NavBar';
@@ -15,7 +16,7 @@ function App() {
     fetch('http://localhost:3000/featured')
       .then(r => r.json())
       .then(setFeatured)
-      .catch(console.error);
+      .catch(error => console.error('Error fetching featured:', error));
   }, []);
 
   // Load garage cars
@@ -23,16 +24,17 @@ function App() {
     fetch('http://localhost:3000/garage')
       .then(r => r.json())
       .then(setGarage)
-      .catch(console.error);
+      .catch(error => console.error('Error fetching garage:', error));
   }, []);
 
-  // Like handler
+  // Like handler: PATCH /featured/:id
   function handleLike(id) {
-    console.log('Sending like for car', id);
     const car = featured.find(c => c.id === id);
     if (!car) return;
     const updated = { ...car, likes: car.likes + 1 };
-    setFeatured(f => f.map(c => c.id === id ? updated : c));
+
+    // Optimistically update UI
+    setFeatured(prev => prev.map(c => c.id === id ? updated : c));
 
     fetch(`http://localhost:3000/featured/${id}`, {
       method: 'PATCH',
@@ -40,50 +42,53 @@ function App() {
       body: JSON.stringify({ likes: updated.likes })
     })
       .then(r => {
-        if (!r.ok) {
-          console.error(`PATCH like failed: ${r.status}`);
-          return null;
-        }
+        if (!r.ok) throw new Error(`PATCH failed: ${r.status}`);
         return r.json();
       })
-      .then(saved => {
-        if (saved) {
-          setFeatured(f => f.map(c => c.id === saved.id ? saved : c));
-        }
+      .then(data => {
+        setFeatured(prev => prev.map(c => c.id === data.id ? data : c));
       })
-      .catch(console.error);
+      .catch(error => console.error('Error updating likes:', error));
   }
 
+  // Add to garage: POST new record with car data
   function handleAddToGarage(id) {
-
-    if (garage.find(c => c.id === id)) return;
+    if (garage.find(c => c.originalId === id)) return;
+  
     const car = featured.find(c => c.id === id);
     if (!car) return;
-
+  
+    const carToSave = {
+      ...car,
+      originalId: car.id,   // Keep track of where it came from
+      id: uuidv4()          // Assign a new unique ID for the DB
+    };
+  
     fetch('http://localhost:3000/garage', {
       method: 'POST',
-      headers: {'Content-Type':'application/json'},
-      body: JSON.stringify({ ...car, id: car.id })
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(carToSave)
     })
-    .then(r => r.json())
-    .then(newCar => setGarage(g => [...g, newCar]))
-    .catch(console.error);
-  }
-
-  
-
-  // Remove from garage
-  function handleRemoveFromGarage(id) {
-    fetch(`http://localhost:3000/garage/${id}`, {
-       method: 'DELETE' 
+      .then(r => {
+        if (!r.ok) throw new Error(`POST failed: ${r.status}`);
+        return r.json();
       })
-      .then(() => setGarage(g => g.filter(c => c.id !== id)))
-      .catch(console.error);
+      .then(data => setGarage(prev => [...prev, data]))
+      .catch(error => console.error('Error adding to garage:', error));
   }
   
 
-  // Build a Set of IDs currently in garage
-  const garageIds = new Set(garage.map(c => c.id));
+  function handleRemoveFromGarage(id) {
+    console.log("Trying to remove car ID:", id);
+    fetch(`http://localhost:3000/garage/${id}`, { method: 'DELETE' })
+      .then(r => {
+        if (!r.ok) throw new Error(`DELETE failed: ${r.status}`);
+        setGarage(prev => prev.filter(c => c.id !== id));
+      })
+      .catch(error => console.error('Error removing from garage:', error));
+  }
+  
+  const garageIds = new Set(garage.map(c => c.originalId));
 
   return (
     <>
@@ -96,8 +101,8 @@ function App() {
               cars={featured}
               onLike={handleLike}
               onAdd={handleAddToGarage}
-              onRemove={handleRemoveFromGarage}
               garageIds={garageIds}
+              onRemove={handleRemoveFromGarage}
             />
           }
         />
@@ -119,4 +124,3 @@ function App() {
 }
 
 export default App;
-

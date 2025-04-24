@@ -88,46 +88,5 @@
       "isFeatured": false
     }
   ],
-  "garage": [
-    {
-      "id": 1,
-      "make": "Tesla",
-      "model": "Model S",
-      "year": 2023,
-      "price": 89990,
-      "image": "/images/featured/tesla-model-s.jpg",
-      "isFeatured": true,
-      "likes": 0
-    },
-    {
-      "id": 1,
-      "make": "Tesla",
-      "model": "Model S",
-      "year": 2023,
-      "price": 89990,
-      "image": "/images/featured/tesla-model-s.jpg",
-      "isFeatured": true,
-      "likes": 0
-    },
-    {
-      "id": 2,
-      "make": "Porsche",
-      "model": "911",
-      "year": 2022,
-      "price": 120000,
-      "image": "/images/featured/porsche-911.jpg",
-      "isFeatured": true,
-      "likes": 0
-    },
-    {
-      "id": 3,
-      "make": "Bentley",
-      "model": "Bentley continental",
-      "year": 2019,
-      "price": 1200000,
-      "image": "/images/featured/Bentley-continental.jpg",
-      "isFeatured": true,
-      "likes": 0
-    }
-  ]
+  "garage": []
 }
