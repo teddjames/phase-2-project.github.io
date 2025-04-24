@@ -38,7 +38,7 @@ function App() {
   
     const updated = { ...car, likes: car.likes + 1 };
   
-    // PATCH the backend (either featured or garage)
+    // PATCH the backend 
     const endpoint = fromFeatured ? `featured/${id}` : `garage/${car.id}`;
   
     fetch(`http://localhost:3000/${endpoint}`, {
