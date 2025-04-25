@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import NavBar from './NavBar';
 
 function Inventory() {
   const [allCars, setAllCars] = useState([]);
@@ -9,7 +8,6 @@ function Inventory() {
   const [maxPrice, setMaxPrice] = useState('');
   const [ cart,setCart ] = useState([])
 
-  // Initialize cars and load likes
     useEffect(() => {
       fetch(`http://localhost:3000/inventory`)
       .then(r => r.json())
@@ -17,7 +15,6 @@ function Inventory() {
       .catch(error => console.error(error))
      }, [])
 
-  // Filter cars based on search/filters
   useEffect(() => {
     let results = allCars;
     
@@ -96,7 +93,6 @@ function Inventory() {
   
   return (
     <div className="inventory">
-      <NavBar />
       <h2>Our Inventory</h2>
       
       {/* Search/Filter Bar */}
