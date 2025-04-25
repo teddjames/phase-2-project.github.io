@@ -4,7 +4,7 @@ import NavBar from './NavBar'
 function AboutUs() {
   return (
     <div>
-
+      hello
     </div>
   )
 }
