@@ -5,6 +5,10 @@ import Homepage from './Homepage';
 import Garage from './Garage';
 import Inventory from './Inventory';
 import AboutUs from './AboutUs';
+import { AuthProvider } from './AuthContext';
+import ProtectedRoute from './protectedRoute';
+import Login from './LoginLogout';
+import SignUp from './signUp';
 
 function App() {
   const [featured, setFeatured] = useState([]);
@@ -109,36 +113,51 @@ function App() {
   const garageIds = new Set(garage.map(c => c.originalId));
 
   return (
-    <>
-      <NavBar />
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <Homepage
-              cars={featured}
-              onLike={handleLike}
-              onAdd={handleAddToGarage}
-              garageIds={garageIds}
-              onRemove={handleRemoveFromGarage}
-            />
-          }
-        />
-        <Route path="/inventory" element={<Inventory />} />
-        <Route
-          path="/garage"
-          element={
-            <Garage
-              garage={garage}
-              onLike={handleLike}
-              onRemove={handleRemoveFromGarage}
-            />
-          }
-        />
-        <Route path="/about" element={<AboutUs />} />
-      </Routes>
-    </>
-  );
+    <AuthProvider>
+    <NavBar />
+    <Routes>
+      <Route
+        path="/"
+        element={
+          <Homepage
+            cars={featured}
+            onLike={handleLike}
+            onAdd={handleAddToGarage}
+            garageIds={garageIds}
+            onRemove={handleRemoveFromGarage}
+          />
+        }
+      />
+
+      {/* Public route */}
+      <Route path="/login" element={<Login />} />
+
+      {/*Protected route */}
+      <Route
+        path="/inventory"
+        element={
+          <ProtectedRoute>
+            <Inventory />
+          </ProtectedRoute>
+        }
+      />
+
+      <Route
+        path="/garage"
+        element={
+          <Garage
+            garage={garage}
+            onLike={handleLike}
+            onRemove={handleRemoveFromGarage}
+          />
+        }
+      />
+      <Route path="/about" element={<AboutUs />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/signup" element={<SignUp />} />
+    </Routes>
+  </AuthProvider>
+);
 }
 
 export default App;

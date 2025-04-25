@@ -1,7 +1,14 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { NavLink,useNavigate } from 'react-router-dom';
+import { AuthContext } from './AuthContext';
 
 function NavBar() {
+  const { user, logout } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout();
+    navigate('/');}
   return (
     <nav className="navbar">
       <NavLink
@@ -40,8 +47,23 @@ function NavBar() {
       >
         About
       </NavLink>
+       {/* Auth controls */}
+       {user ? (
+        <button onClick={handleLogout} className="navbar__link navbar__button">
+          Logout
+        </button>
+      ) : (
+        <NavLink
+          to="/login"
+          className={({ isActive }) =>
+            isActive ? 'navbar__link navbar__link--active' : 'navbar__link'
+          }
+        >
+          Login
+        </NavLink>
+      )}
     </nav>
   );
 }
 
-export default NavBar;
+export default NavBar

@@ -3,6 +3,7 @@ import Homepage from "./components/Homepage";
 import Inventory from "./components/Inventory";
 import AboutUs from "./components/AboutUs";
 import Garage from "./components/Garage";
+import Login from "./components/LoginLogout";
 
 const routes = [
     {
@@ -24,7 +25,12 @@ const routes = [
     {
         path: "/about",
         element: <AboutUs />
-    }
+    },
+    {
+        path: "/login",
+        element: <Login />
+    },
+
 ];
 
 export default routes;
