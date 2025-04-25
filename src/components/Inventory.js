@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import CarCard from './CarCard';
 
 function Inventory() {
   const [allCars, setAllCars] = useState([]);
