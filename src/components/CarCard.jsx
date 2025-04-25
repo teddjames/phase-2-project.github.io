@@ -9,9 +9,9 @@ function CarCard({ car, inGarage = false, onLike, onAdd, onRemove }) {
       <div className="actions">
         <button onClick={() => onLike(car.id)}>♥ {car.likes}</button>
         {inGarage ? (
-          <button onClick={() => onRemove(car.id)}>Remove from Garage</button>
+          <button onClick={() => onRemove(car.id)} className='remove-from-garage'>Remove from Garage</button>
         ) : (
-          <button onClick={() => onAdd(car.id)}>Add to Garage</button>
+          <button onClick={() => onAdd(car.id)} className='add-to-garage'>Add to Garage</button>
         )}
       </div>
     </div>
