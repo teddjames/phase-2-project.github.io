@@ -5,11 +5,11 @@ function Garage({ garage = [], onLike, onRemove }) {
   return (
     <div className="garage">
       <header>
-        <h2>Your Garage</h2>
+        <h2 className='heading'>Your Garage</h2>
       </header>
       <div className="garage-grid">
         {garage.length === 0 ? (
-          <p>Your garage is empty.</p>
+          <p className='heading'>Your garage is empty.</p>
         ) : (
           garage.map(car => (
             <CarCard
