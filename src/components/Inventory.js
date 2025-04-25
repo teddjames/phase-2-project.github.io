@@ -36,15 +36,9 @@ function Inventory() {
   }, [searchTerm, minPrice, maxPrice, allCars]);
 
 //like feature
-  useEffect(() => {
-      fetch(`http://localhost:3000/featured`)
-      .then(r => r.json())
-      .then(data => setAllCars(data))
-      .catch(error => console.error(error))
-     }, [])
       
      function handleLike(carId){
-      const carToUpdate = cars.find(car => car.id === carId);
+      const carToUpdate = allCars.find(car => car.id === carId);
       if (!carToUpdate) return;
     
       const updatedLikes = carToUpdate.likes + 1;
@@ -57,7 +51,7 @@ function Inventory() {
       );
     
       // PATCH Request for the updated car
-      fetch(`http://localhost:3000/featured/${carId}`, {
+      fetch(`http://localhost:3000/inventory/${carId}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json"

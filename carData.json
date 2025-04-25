@@ -8,7 +8,7 @@
       "price": 89990,
       "image": "/images/featured/tesla-model-s.jpg",
       "isFeatured": true,
-      "likes": 37
+      "likes": 39
     },
     {
       "id": "b4f99c33-9554-46ce-bc7c-2a2454d83844",
@@ -18,7 +18,7 @@
       "price": 120000,
       "image": "/images/featured/porsche-911.jpg",
       "isFeatured": true,
-      "likes": 6
+      "likes": 7
     },
     {
       "id": "0d3a0083-3bd4-44c4-af62-bc17b60d9f57",
@@ -28,17 +28,17 @@
       "price": 1200000,
       "image": "/images/featured/Bentley-continental.jpg",
       "isFeatured": true,
-      "likes": 2
+      "likes": 3
     },
     {
       "id": "ddedc496-db26-438c-94c0-a17690ecde79",
-      "make": "random",
+      "make": "Mercedes-Benz SLS AMG",
       "model": "mercedes",
       "year": 2019,
       "price": 1200000,
       "image": "/images/featured/merc.jpg",
       "isFeatured": true,
-      "likes": 0
+      "likes": 2
     },
     {
       "id": "4d6160b6-1e26-4023-9952-9b67c42ca77d",
@@ -70,98 +70,194 @@
   ],
   "inventory": [
     {
-      "id": "4d6160b6-1e26-4023-9952-9b67c42ca77d",
+      "id": 1,
       "make": "Toyota",
       "model": "Camry",
       "year": 2022,
       "price": 24999,
       "image": "/images/inventory/toyota-camry.jpg",
-      "isFeatured": false
+      "isFeatured": false,
+      "likes": 3
     },
     {
-      "id": "3e6ccb66-36a4-47de-a67e-6f94f9038a71",
+      "id": 2,
       "make": "Honda",
       "model": "Civic",
       "year": 2023,
       "price": 22999,
       "image": "/images/inventory/honda-civic.jpg",
-      "isFeatured": false
-    }
-  ],
-  "garage": [
-    {
-      "id": "80ee69b9-954a-459c-9990-ffb4747514ea",
-      "make": "Tesla",
-      "model": "Model S",
-      "year": 2023,
-      "price": 89990,
-      "image": "/images/featured/tesla-model-s.jpg",
-      "isFeatured": true,
-      "likes": 37,
-      "originalId": "80ee69b9-954a-459c-9990-ffb4747514ea"
+      "isFeatured": false,
+      "likes": 2
     },
     {
-      "id": "b4f99c33-9554-46ce-bc7c-2a2454d83844",
-      "make": "Porsche",
+      "id": 3,
+      "make": "Fiat",
+      "model": "500",
+      "year": 1945,
+      "price": 22999,
+      "image": "/images/inventory/Fiat 500.jpg",
+      "isFeatured": false,
+      "likes": 2
+    },
+    {
+      "id": 4,
+      "make": "Ford",
+      "model": "Shelby",
+      "year": 2020,
+      "price": 22999,
+      "image": "/images/inventory/Ford Mustang shelby GT500.jpg",
+      "isFeatured": false,
+      "likes": 1
+    },
+    {
+      "id": 5,
+      "make": "porsche",
       "model": "911",
-      "year": 2022,
-      "price": 120000,
-      "image": "/images/featured/porsche-911.jpg",
-      "isFeatured": true,
-      "likes": 6,
-      "originalId": "b4f99c33-9554-46ce-bc7c-2a2454d83844"
-    },
-    {
-      "id": "0d3a0083-3bd4-44c4-af62-bc17b60d9f57",
-      "make": "Bentley",
-      "model": "Bentley continental",
-      "year": 2019,
-      "price": 1200000,
-      "image": "/images/featured/Bentley-continental.jpg",
-      "isFeatured": true,
-      "likes": 2,
-      "originalId": "0d3a0083-3bd4-44c4-af62-bc17b60d9f57"
-    },
-    {
-      "id": "3e6ccb66-36a4-47de-a67e-6f94f9038a71",
-      "make": "Honda",
-      "model": "Civic",
-      "year": 2023,
+      "year": 1980,
       "price": 22999,
-      "image": "/images/inventory/honda-civic.jpg",
-      "likes": 0,
-      "originalId": "3e6ccb66-36a4-47de-a67e-6f94f9038a71"
+      "image": "/images/inventory/posche 911.jpg",
+      "isFeatured": false
     },
     {
-      "id": "4d6160b6-1e26-4023-9952-9b67c42ca77d",
-      "make": "Toyota",
-      "model": "Camry",
-      "year": 2022,
-      "price": 24999,
-      "image": "/images/inventory/toyota-camry.jpg",
-      "likes": 0,
-      "originalId": "4d6160b6-1e26-4023-9952-9b67c42ca77d"
+      "id": 6,
+      "make": "chevrolet",
+      "model": "Corvette",
+      "year": 1980,
+      "price": 22999,
+      "image": "/images/inventory/Chevrolet corvette.jpg",
+      "isFeatured": false
     },
     {
-      "id": "ddedc496-db26-438c-94c0-a17690ecde79",
-      "make": "random",
+      "id": 7,
+      "make": "Alfa",
+      "model": "Romeo",
+      "year": 1939,
+      "price": 19800000,
+      "image": "/images/inventory/alfa-romeo.jpg",
+      "isFeatured": false
+    },
+    {
+      "id": 8,
+      "make": "Audi",
+      "model": "A8",
+      "year": 2007,
+      "price": 92500,
+      "image": "/images/inventory/Audi A8.jpg",
+      "isFeatured": false
+    },
+    {
+      "id": 9,
+      "make": "Austin",
+      "model": "Healey",
+      "year": 1967,
+      "price": 97851,
+      "image": "/images/inventory/Austin-Healey 3000.jpg",
+      "isFeatured": false
+    },
+    {
+      "id": 10,
+      "make": "bmw",
+      "model": "m5",
+      "year": 1985,
+      "price": 100000,
+      "image": "/images/inventory/bmw-m5.jpg",
+      "isFeatured": false
+    },
+    {
+      "id": 11,
+      "make": "Ford",
+      "model": "Crestline sunliner convertible",
+      "year": 1953,
+      "price": 40000,
+      "image": "/images/inventory/Ford crestline sunliner convertible.jpg",
+      "isFeatured": false
+    },
+    {
+      "id": 12,
+      "make": "Hispano",
+      "model": "suiza H6",
+      "year": 1919,
+      "price": 360000,
+      "image": "/images/inventory/Hispano-suiza H6.jpg",
+      "isFeatured": false
+    },
+    {
+      "id": 13,
+      "make": "Hudson",
+      "model": "Phaeton",
+      "year": 1914,
+      "price": 60000,
+      "image": "/images/inventory/Hudson-Phaeton.jpg",
+      "isFeatured": false
+    },
+    {
+      "id": 14,
+      "make": "Maserrati",
+      "model": "GranTurismo",
+      "year": 2007,
+      "price": 200000,
+      "image": "/images/inventory/Maserrati GranTurismo.jpg",
+      "isFeatured": false
+    },
+    {
+      "id": 15,
+      "make": "Plymouth",
+      "model": "satellite",
+      "year": 1967,
+      "price": 37000,
+      "image": "/images/inventory/Plymouth satellite.jpg",
+      "isFeatured": false
+    },
+    {
+      "id": 16,
+      "make": "Packward",
+      "model": "Twelve convertible Victoria",
+      "year": 1934,
+      "price": 400000,
+      "image": "/images/inventory/Packward Twelve Convertible Victoria.jpg",
+      "isFeatured": false,
+      "likes": 6
+    },
+    {
+      "id": 17,
+      "make": "Hot rod",
+      "model": "mercury",
+      "year": 1949,
+      "price": 150000,
+      "image": "/images/inventory/Hot rod mercury.jpg",
+      "isFeatured": false,
+      "likes": 2
+    },
+    {
+      "id": 18,
+      "make": "Mercedes-Benz SLS AMG",
       "model": "mercedes",
       "year": 2019,
       "price": 1200000,
-      "image": "/images/featured/merc.jpg",
-      "isFeatured": true,
-      "likes": 0,
-      "originalId": "ddedc496-db26-438c-94c0-a17690ecde79"
+      "image": "/images/inventory/merc.jpg",
+      "isFeatured": false,
+      "likes": 0
     },
     {
-      "id": "0c0168a1-e0ca-4a59-9d2a-47d3f829d4f0",
-      "make": "Ford",
-      "model": "Mustang",
-      "year": 2021,
-      "price": 34999,
-      "image": "/images/featured/ford-mustang.jpeg",
-      "likes": 0,
-      "originalId": "0c0168a1-e0ca-4a59-9d2a-47d3f829d4f0"
+      "id": 20,
+      "make": "AC",
+      "model": "Cobra",
+      "year": 1969,
+      "price": 400000,
+      "image": "/images/inventory/AC cobra.jpg",
+      "isFeatured": false,
+      "likes": 0
+    },
+    {
+      "id": 21,
+      "make": "Jaguar",
+      "model": "E-type",
+      "year": 1969,
+      "price": 100000,
+      "image": "/images/inventory/jaguar E-type.jpg",
+      "isFeatured": false,
+      "likes": 0
     }
-  ]
+  ],
+  "garage": []
 }
