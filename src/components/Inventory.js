@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
 
-function Inventory() {
+function Inventory({ garage=[], addToGarage, removeFromGarage }) {
   const [allCars, setAllCars] = useState([]);
   const [filteredCars, setFilteredCars] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [minPrice, setMinPrice] = useState('');
   const [maxPrice, setMaxPrice] = useState('');
-  const [ cart,setCart ] = useState([])
 
     useEffect(() => {
       fetch(`http://localhost:3000/inventory`)
@@ -35,7 +34,13 @@ function Inventory() {
     setFilteredCars(results);
   }, [searchTerm, minPrice, maxPrice, allCars]);
 
-//like feature
+  //like feature
+  useEffect(() => {
+      fetch(`http://localhost:3000/featured`)
+      .then(r => r.json())
+      .then(data => setAllCars(data))
+      .catch(error => console.error(error))
+     }, [])
       
      function handleLike(carId){
       const carToUpdate = allCars.find(car => car.id === carId);
@@ -68,21 +73,16 @@ function Inventory() {
         })
         .catch(error => console.error(error));
     }
-  //Add to cart feature
-  const handleToggleCart = (car) => {
-    const isInCart = cart.some(item => item.id === car.id);
+  //Add to Garage feature
+  function handleToggleGarage(car){
+    const isInGarage = garage.some(item => item.id === car.id);
   
-    let updatedCart;
-    if (isInCart) {
-      updatedCart = cart.filter(item => item.id !== car.id);
-      console.log('Removed from in cart')
+    if (isInGarage) {
+      removeFromGarage(car.id);
     } else {
-      updatedCart = [...cart, car];
-      console.log("Added to cart")
+      addToGarage(car.id);
     }
   
-    setCart(updatedCart);
-    localStorage.setItem('cart', JSON.stringify(updatedCart));
   };
   
   return (
@@ -130,7 +130,8 @@ function Inventory() {
             
             <div className="car-details">
               <h3>{car.year} {car.make} {car.model}</h3>
-              <p className="price">${car.price.toLocaleString()}</p>
+              {/* Confirm what the .toLocaleString() does */}
+              <p className="price">${car.price}</p>
               <div className="like-container">
                 <button 
                   onClick={() => handleLike(car.id)}
@@ -141,11 +142,11 @@ function Inventory() {
                 </button>
                 { /*Add to cart feature */}
               <button 
-                  className={`car-button ${cart.some(item => item.id === car.id) ? 'remove-from-cart-btn' : 'add-to-cart-btn'}`}
-                  onClick={()=>handleToggleCart(car)}
+                  className={`car-button ${garage.some(item => item.id === car.id) ? 'remove-from-garage-btn' : 'add-to-garage-btn'}`}
+                  onClick={()=>handleToggleGarage(car)}
               >
-              <span className='add-to-cart'>
-                { cart.some(item => item.id === car.id) ? 'Remove from cart' : 'Add to cart'}
+              <span className='add-to-garage'>
+                { garage.some(item => item.id === car.id) ? 'Remove from Garage' : 'Add to Garage'}
               </span>
               </button>
               </div>

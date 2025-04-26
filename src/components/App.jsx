@@ -137,7 +137,11 @@ function App() {
         path="/inventory"
         element={
           <ProtectedRoute>
-            <Inventory />
+            <Inventory 
+              garage={garage}
+              addToGarage={handleAddToGarage}
+              removeFromGarage={handleRemoveFromGarage}
+            />
           </ProtectedRoute>
         }
       />
