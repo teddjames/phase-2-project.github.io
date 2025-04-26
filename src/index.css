@@ -257,7 +257,7 @@
   align-items: center;
   gap: 10px;
   padding: 8px 16px;
-  background-color: #4CAF50; /* Green */
+  /*background-color: #4CAF50; */
   color: white;
   border: none;
   border-radius: 4px;
@@ -266,32 +266,37 @@
   position:relative;
   margin: 0px 0px 10px 105px;
 }
-.add-to-garage-btn {
-  background-color: #09ABEB;
-  color: white;
-}
 
-.remove-from-garage-btn {
-  background-color: #FF4F4F;
-  color: white;
+/* Base button styles (applies to both classes) */
+.remove-from-garage, 
+.add-to-garage {
+  padding: 8px 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
 }
 
 .add-to-garage {
+  background-color: #4CAF50; 
+  color: white;
+}
+
+.remove-from-garage {
+  background-color: #f44336;
+  color: white;
+}
+
+.button-text {
   font-weight: 500;
+  display: inline-block;
 }
 
-.add-to-garage {
-  background-color: #09ABEB;
-  color: white;
-}
-
-/*.remove-from-garage {
-  background-color: #FF4F4F;
-  color: white;
-}*/
-
-.add-to-garage {
-  font-weight: 500;
+.remove-from-garage:hover, 
+.add-to-garage:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
 }
 
 /* style for the login page is centered only */
