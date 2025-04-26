@@ -5,21 +5,23 @@ function Garage({ garage = [], onLike, onRemove }) {
   return (
     <div className="garage">
       <header>
-        <h2 className='heading'>Your Garage</h2>
+        <h2 className="garage-heading">Your Garage</h2>
       </header>
-      <div className="garage-grid">
+      <div className="garage-content">
         {garage.length === 0 ? (
-          <p className='heading'>Your garage is empty.</p>
+          <p className="empty-message">Your garage is empty. Start adding some vintage cars!</p>
         ) : (
-          garage.map(car => (
-            <CarCard
-              key={car.id}
-              car={car}
-              inGarage={true}
-              onLike={onLike}
-              onRemove={onRemove}
-            />
-          ))
+          <div className="car-grid">
+            {garage.map(car => (
+              <CarCard
+                key={car.id}
+                car={car}
+                inGarage={true}
+                onLike={onLike}
+                onRemove={onRemove}
+              />
+            ))}
+          </div>
         )}
       </div>
     </div>
@@ -27,4 +29,3 @@ function Garage({ garage = [], onLike, onRemove }) {
 }
 
 export default Garage;
-

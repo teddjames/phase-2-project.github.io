@@ -281,6 +281,58 @@
       "isFeatured": true,
       "likes": 7,
       "originalId": "b4f99c33-9554-46ce-bc7c-2a2454d83844"
+    },
+    {
+      "id": "0d3a0083-3bd4-44c4-af62-bc17b60d9f57",
+      "make": "Bentley",
+      "model": "Bentley continental",
+      "year": 2019,
+      "price": 1200000,
+      "image": "/images/featured/Bentley-continental.jpg",
+      "isFeatured": true,
+      "likes": 3,
+      "originalId": "0d3a0083-3bd4-44c4-af62-bc17b60d9f57"
+    },
+    {
+      "id": "4d6160b6-1e26-4023-9952-9b67c42ca77d",
+      "make": "Toyota",
+      "model": "Camry",
+      "year": 2022,
+      "price": 24999,
+      "image": "/images/inventory/toyota-camry.jpg",
+      "likes": 0,
+      "originalId": "4d6160b6-1e26-4023-9952-9b67c42ca77d"
+    },
+    {
+      "id": "ddedc496-db26-438c-94c0-a17690ecde79",
+      "make": "Mercedes-Benz SLS AMG",
+      "model": "mercedes",
+      "year": 2019,
+      "price": 1200000,
+      "image": "/images/featured/merc.jpg",
+      "isFeatured": true,
+      "likes": 2,
+      "originalId": "ddedc496-db26-438c-94c0-a17690ecde79"
+    },
+    {
+      "id": "3e6ccb66-36a4-47de-a67e-6f94f9038a71",
+      "make": "Honda",
+      "model": "Civic",
+      "year": 2023,
+      "price": 22999,
+      "image": "/images/inventory/honda-civic.jpg",
+      "likes": 0,
+      "originalId": "3e6ccb66-36a4-47de-a67e-6f94f9038a71"
+    },
+    {
+      "id": "0c0168a1-e0ca-4a59-9d2a-47d3f829d4f0",
+      "make": "Ford",
+      "model": "Mustang",
+      "year": 2021,
+      "price": 34999,
+      "image": "/images/featured/ford-mustang.jpeg",
+      "likes": 0,
+      "originalId": "0c0168a1-e0ca-4a59-9d2a-47d3f829d4f0"
     }
   ]
 }

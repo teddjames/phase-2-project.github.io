@@ -279,6 +279,41 @@
 .add-to-cart {
   font-weight: 500;
 }
+
+.add-to-garage {
+  background-color: #09ABEB;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  position:relative;
+  margin: 0px 0px 10px 105px;
+}
+
+.remove-from-garage {
+  background-color: #FF4F4F;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  position:relative;
+  margin: 0px 0px 10px 105px;
+}
+
+.add-to-garage {
+  font-weight: 500;
+}
+
 /* style for the login page is centered only */
 .login-page {
   height: 100vh;
@@ -474,4 +509,120 @@
   background-color: #c1121f;
   transform: translateY(-2px);
   box-shadow: 0 5px 15px rgba(198, 18, 31, 0.3);
+}
+
+/* About Us Styles */
+.about-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.about-header h1 {
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.about-section {
+  margin-bottom: 25px;
+}
+
+.about-section h2 {
+  font-size: 22px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.highlight-box {
+  background: #f5f5f5;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.highlight-text {
+  font-weight: bold;
+  color: #0066cc;
+}
+
+.mission-text {
+  line-height: 1.5;
+  color: #555;
+}
+
+.join-text {
+  font-weight: bold;
+  color: #333;
+  margin-top: 10px;
+}
+
+.contact-section {
+  background: #e6f2ff;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.contact-details {
+  margin-top: 15px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.contact-item span:first-child {
+  margin-right: 10px;
+}
+
+.contact-item span:nth-child(2) {
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.contact-item a {
+  color: #0066cc;
+  text-decoration: none;
+}
+
+.contact-item a:hover {
+  text-decoration: underline;
+}
+
+/* garage styles */
+.garage {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.garage-heading {
+  font-size: 24px;
+  color: #333;
+  text-align: center;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #eee;
+}
+
+.empty-message {
+  text-align: center;
+  color: #666;
+  font-size: 18px;
+  margin-top: 40px;
+}
+
+.car-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 10px;
+}
+
+@media (max-width: 600px) {
+  .car-grid {
+    grid-template-columns: 1fr;
+  }
 }
