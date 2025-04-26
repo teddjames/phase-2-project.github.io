@@ -41,6 +41,7 @@ function Inventory({ garage=[], addToGarage, removeFromGarage }) {
       .then(data => setAllCars(data))
       .catch(error => console.error(error))
      }, [])
+
       
      function handleLike(carId){
       const carToUpdate = allCars.find(car => car.id === carId);
