@@ -73,7 +73,7 @@ function App() {
   }
   
 
-  // Add to garage: POST new record with car data
+  // Add to garage: POST new record with new car data
   function handleAddToGarage(id) {
     if (garage.find(c => c.originalId === id)) return;
   
@@ -137,7 +137,11 @@ function App() {
         path="/inventory"
         element={
           <ProtectedRoute>
-            <Inventory />
+            <Inventory 
+              garage={garage}
+              addToGarage={handleAddToGarage}
+              removeFromGarage={handleRemoveFromGarage}
+            />
           </ProtectedRoute>
         }
       />
