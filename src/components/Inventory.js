@@ -34,7 +34,7 @@ function Inventory({ garage=[], addToGarage, removeFromGarage }) {
     setFilteredCars(results);
   }, [searchTerm, minPrice, maxPrice, allCars]);
 
-  //like feature
+  //like Feature
   useEffect(() => {
       fetch(`http://localhost:3000/featured`)
       .then(r => r.json())
