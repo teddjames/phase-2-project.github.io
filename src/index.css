@@ -266,17 +266,17 @@
   position:relative;
   margin: 0px 0px 10px 105px;
 }
-.add-to-cart-btn {
+.add-to-garage-btn {
   background-color: #09ABEB;
   color: white;
 }
 
-.remove-from-cart-btn {
+.remove-from-garage-btn {
   background-color: #FF4F4F;
   color: white;
 }
 
-.add-to-cart {
+.add-to-garage {
   font-weight: 500;
 }
 
