@@ -283,32 +283,12 @@
 .add-to-garage {
   background-color: #09ABEB;
   color: white;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 8px 16px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  position:relative;
-  margin: 0px 0px 10px 105px;
 }
 
-.remove-from-garage {
+/*.remove-from-garage {
   background-color: #FF4F4F;
   color: white;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 8px 16px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  position:relative;
-  margin: 0px 0px 10px 105px;
-}
+}*/
 
 .add-to-garage {
   font-weight: 500;
