@@ -259,5 +259,50 @@
       "likes": 0
     }
   ],
-  "garage": []
+  "garage": [
+    {
+      "id": "ddedc496-db26-438c-94c0-a17690ecde79",
+      "make": "Mercedes-Benz SLS AMG",
+      "model": "mercedes",
+      "year": 2019,
+      "price": 1200000,
+      "image": "/images/featured/merc.jpg",
+      "isFeatured": true,
+      "likes": 2,
+      "originalId": "ddedc496-db26-438c-94c0-a17690ecde79"
+    },
+    {
+      "id": "0d3a0083-3bd4-44c4-af62-bc17b60d9f57",
+      "make": "Bentley",
+      "model": "Bentley continental",
+      "year": 2019,
+      "price": 1200000,
+      "image": "/images/featured/Bentley-continental.jpg",
+      "isFeatured": true,
+      "likes": 3,
+      "originalId": "0d3a0083-3bd4-44c4-af62-bc17b60d9f57"
+    },
+    {
+      "id": "80ee69b9-954a-459c-9990-ffb4747514ea",
+      "make": "Tesla",
+      "model": "Model S",
+      "year": 2023,
+      "price": 89990,
+      "image": "/images/featured/tesla-model-s.jpg",
+      "isFeatured": true,
+      "likes": 39,
+      "originalId": "80ee69b9-954a-459c-9990-ffb4747514ea"
+    },
+    {
+      "id": "b4f99c33-9554-46ce-bc7c-2a2454d83844",
+      "make": "Porsche",
+      "model": "911",
+      "year": 2022,
+      "price": 120000,
+      "image": "/images/featured/porsche-911.jpg",
+      "isFeatured": true,
+      "likes": 7,
+      "originalId": "b4f99c33-9554-46ce-bc7c-2a2454d83844"
+    }
+  ]
 }
