@@ -77,7 +77,7 @@
       "price": 24999,
       "image": "/images/inventory/toyota-camry.jpg",
       "isFeatured": false,
-      "likes": 3
+      "likes": 4
     },
     {
       "id": 2,
@@ -259,5 +259,16 @@
       "likes": 0
     }
   ],
-  "garage": []
+  "garage": [
+    {
+      "id": 1745745416608,
+      "make": "Alfa",
+      "model": "Romeo",
+      "year": 1939,
+      "price": 19800000,
+      "image": "/images/inventory/alfa-romeo.jpg",
+      "isFeatured": false,
+      "originalId": 7
+    }
+  ]
 }

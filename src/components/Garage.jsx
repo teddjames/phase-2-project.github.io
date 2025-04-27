@@ -2,6 +2,7 @@ import React from 'react';
 import CarCard from '../components/CarCard';
 
 function Garage({ garage = [], onLike, onRemove }) {
+  console.log("Rendering garage with cars:" ,garage);
   return (
     <div className="garage">
       <header>

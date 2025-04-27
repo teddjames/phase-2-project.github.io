@@ -13,6 +13,7 @@ import SignUp from './signUp';
 function App() {
   const [featured, setFeatured] = useState([]);
   const [garage, setGarage] = useState([]);
+  const [ allInventoryCars,setAllInventoryCars] = useState([]);
 
   // Load featured cars
   useEffect(() => {
@@ -21,6 +22,14 @@ function App() {
       .then(setFeatured)
       .catch(error => console.error('Error fetching featured:', error));
   }, []);
+//load Inventory cars
+  useEffect(() => {
+    fetch('http://localhost:3000/inventory')
+      .then(r => r.json())
+      .then(setAllInventoryCars)
+      .catch(error => console.error('Error fetching inventory:', error));
+  }, []);
+  
 
   // Load garage cars
   useEffect(() => {
@@ -75,15 +84,20 @@ function App() {
 
   // Add to garage: POST new record with new car data
   function handleAddToGarage(id) {
-    if (garage.find(c => c.originalId === id)) return;
+    // Check if car is already in garage (by originalId or id)
+    if (garage.some(c => c.originalId === id || c.id === id)) return;
   
-    const car = featured.find(c => c.id === id);
+    // Try to find car in featured first, then inventory
+    let car = featured.find(c => c.id === id);
+    if (!car) {
+      car = allInventoryCars.find(c => c.id === id); // You'll need allInventoryCars state in App.js
+    }
     if (!car) return;
   
     const carToSave = {
       ...car,
-      originalId: car.id, 
-      id: car.id        
+      originalId: car.id, // Preserve original ID
+      id: Date.now() // Give it a new unique ID for garage
     };
   
     fetch('http://localhost:3000/garage', {
@@ -91,14 +105,10 @@ function App() {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(carToSave)
     })
-      .then(r => {
-        if (!r.ok) throw new Error(`POST failed: ${r.status}`);
-        return r.json();
-      })
+      .then(r => r.json())
       .then(data => setGarage(prev => [...prev, data]))
       .catch(error => console.error('Error adding to garage:', error));
   }
-  
 
   function handleRemoveFromGarage(id) {
     console.log("Trying to remove car ID:", id);
@@ -138,6 +148,7 @@ function App() {
         element={
           <ProtectedRoute>
             <Inventory 
+              allCars={allInventoryCars}
               garage={garage}
               addToGarage={handleAddToGarage}
               removeFromGarage={handleRemoveFromGarage}
