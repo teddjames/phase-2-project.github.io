@@ -36,12 +36,12 @@ function Inventory({ garage=[], addToGarage, removeFromGarage }) {
   }, [searchTerm, minPrice, maxPrice, allCars]);
 
   //like Feature
-  useEffect(() => {
-      fetch(`http://localhost:3000/featured`)
+  /*useEffect(() => {
+      fetch(`http://localhost:3000/inventory`)
       .then(r => r.json())
       .then(data => setAllCars(data))
       .catch(error => console.error(error))
-     }, [])
+     }, [])*/
 
       
      function handleLike(carId){
@@ -76,16 +76,7 @@ function Inventory({ garage=[], addToGarage, removeFromGarage }) {
         .catch(error => console.error(error));
     }
   //Add to Garage feature
-  function handleToggleGarage(car){
-    const isInGarage = garage.some(item => item.id === car.id);
   
-    if (isInGarage) {
-      removeFromGarage(car.id);
-    } else {
-      addToGarage(car.id);
-    }
-  
-  };
   
   return (
     <div className="inventory">
@@ -122,39 +113,16 @@ function Inventory({ garage=[], addToGarage, removeFromGarage }) {
       
       {/* Car Grid */}
       <div className="car-grid">
-        {filteredCars.map(car => (
-          <div key={car.id} className="car-card">
-            <img 
-              src={car.image} 
-              alt={`${car.year} ${car.make} ${car.model}`} 
-              className="car-image"
+          {filteredCars.map(car => (
+            <CarCard
+              key={car.id}
+              car={car}
+              inGarage={garage.some(item => item.id === car.id || item.originalId === car.id)}
+              onLike={handleLike}
+              onAdd={() => addToGarage(car.id)}
+              onRemove={() => removeFromGarage(car.id)}
             />
-            
-            <div className="car-details">
-              <h3>{car.year} {car.make} {car.model}</h3>
-              {/* Confirm what the .toLocaleString() does */}
-              <p className="price">${car.price}</p>
-              <div className="like-container">
-                <button 
-                  onClick={() => handleLike(car.id)}
-                  className="like-btn"
-                  aria-label="Like this vehicle"
-                >
-                  ♥ {car.likes}
-                </button>
-                { /*Add to cart feature */}
-              <button 
-                  className={`car-button ${garage.some(item => item.id === car.id) ? 'remove-from-garage-btn' : 'add-to-garage-btn'}`}
-                  onClick={()=>handleToggleGarage(car)}
-              >
-              <span className='add-to-garage'>
-                { garage.some(item => item.id === car.id) ? 'Remove from Garage' : 'Add to Garage'}
-              </span>
-              </button>
-              </div>
-            </div>
-          </div>
-        ))}
+          ))}
       </div>
     </div>
   );
