@@ -8,7 +8,7 @@
       "price": 89990,
       "image": "/images/featured/tesla-model-s.jpg",
       "isFeatured": true,
-      "likes": 39
+      "likes": 0
     },
     {
       "id": "b4f99c33-9554-46ce-bc7c-2a2454d83844",
@@ -18,7 +18,7 @@
       "price": 120000,
       "image": "/images/featured/porsche-911.jpg",
       "isFeatured": true,
-      "likes": 7
+      "likes": 0
     },
     {
       "id": "0d3a0083-3bd4-44c4-af62-bc17b60d9f57",
@@ -28,7 +28,7 @@
       "price": 1200000,
       "image": "/images/featured/Bentley-continental.jpg",
       "isFeatured": true,
-      "likes": 3
+      "likes": 1
     },
     {
       "id": "ddedc496-db26-438c-94c0-a17690ecde79",
@@ -38,7 +38,7 @@
       "price": 1200000,
       "image": "/images/featured/merc.jpg",
       "isFeatured": true,
-      "likes": 2
+      "likes": 0
     },
     {
       "id": "4d6160b6-1e26-4023-9952-9b67c42ca77d",
@@ -66,6 +66,26 @@
       "price": 34999,
       "image": "/images/featured/ford-mustang.jpeg",
       "likes": 0
+    },
+    {
+      "id": "1",
+      "make": "Audi",
+      "model": "R8",
+      "year": 2023,
+      "price": 89990,
+      "image": "/images/featured/Audi R8.jpg",
+      "isFeatured": true,
+      "likes": 0
+    },
+    {
+      "id": "2",
+      "make": "Mercedes",
+      "model": "AMG GTR",
+      "year": 2023,
+      "price": 89990,
+      "image": "/images/featured/Mercedes AMG GTR.jpg",
+      "isFeatured": true,
+      "likes": 0
     }
   ],
   "inventory": [
@@ -77,7 +97,7 @@
       "price": 24999,
       "image": "/images/inventory/toyota-camry.jpg",
       "isFeatured": false,
-      "likes": 4
+      "likes": 0
     },
     {
       "id": 2,
@@ -87,7 +107,7 @@
       "price": 22999,
       "image": "/images/inventory/honda-civic.jpg",
       "isFeatured": false,
-      "likes": 2
+      "likes": 0
     },
     {
       "id": 3,
@@ -97,7 +117,7 @@
       "price": 22999,
       "image": "/images/inventory/Fiat 500.jpg",
       "isFeatured": false,
-      "likes": 2
+      "likes": 0
     },
     {
       "id": 4,
@@ -107,7 +127,7 @@
       "price": 22999,
       "image": "/images/inventory/Ford Mustang shelby GT500.jpg",
       "isFeatured": false,
-      "likes": 1
+      "likes": 0
     },
     {
       "id": 5,
@@ -116,7 +136,8 @@
       "year": 1980,
       "price": 22999,
       "image": "/images/inventory/posche 911.jpg",
-      "isFeatured": false
+      "isFeatured": false,
+      "likes": 0
     },
     {
       "id": 6,
@@ -125,7 +146,8 @@
       "year": 1980,
       "price": 22999,
       "image": "/images/inventory/Chevrolet corvette.jpg",
-      "isFeatured": false
+      "isFeatured": false,
+      "likes": 0
     },
     {
       "id": 7,
@@ -134,7 +156,8 @@
       "year": 1939,
       "price": 19800000,
       "image": "/images/inventory/alfa-romeo.jpg",
-      "isFeatured": false
+      "isFeatured": false,
+      "likes": 0
     },
     {
       "id": 8,
@@ -143,7 +166,8 @@
       "year": 2007,
       "price": 92500,
       "image": "/images/inventory/Audi A8.jpg",
-      "isFeatured": false
+      "isFeatured": false,
+      "likes": 0
     },
     {
       "id": 9,
@@ -152,7 +176,8 @@
       "year": 1967,
       "price": 97851,
       "image": "/images/inventory/Austin-Healey 3000.jpg",
-      "isFeatured": false
+      "isFeatured": false,
+      "likes": 0
     },
     {
       "id": 10,
@@ -161,7 +186,8 @@
       "year": 1985,
       "price": 100000,
       "image": "/images/inventory/bmw-m5.jpg",
-      "isFeatured": false
+      "isFeatured": false,
+      "likes": 0
     },
     {
       "id": 11,
@@ -170,7 +196,8 @@
       "year": 1953,
       "price": 40000,
       "image": "/images/inventory/Ford crestline sunliner convertible.jpg",
-      "isFeatured": false
+      "isFeatured": false,
+      "likes": 0
     },
     {
       "id": 12,
@@ -179,7 +206,8 @@
       "year": 1919,
       "price": 360000,
       "image": "/images/inventory/Hispano-suiza H6.jpg",
-      "isFeatured": false
+      "isFeatured": false,
+      "likes": 0
     },
     {
       "id": 13,
@@ -188,7 +216,8 @@
       "year": 1914,
       "price": 60000,
       "image": "/images/inventory/Hudson-Phaeton.jpg",
-      "isFeatured": false
+      "isFeatured": false,
+      "likes": 0
     },
     {
       "id": 14,
@@ -197,7 +226,8 @@
       "year": 2007,
       "price": 200000,
       "image": "/images/inventory/Maserrati GranTurismo.jpg",
-      "isFeatured": false
+      "isFeatured": false,
+      "likes": 0
     },
     {
       "id": 15,
@@ -206,7 +236,8 @@
       "year": 1967,
       "price": 37000,
       "image": "/images/inventory/Plymouth satellite.jpg",
-      "isFeatured": false
+      "isFeatured": false,
+      "likes": 0
     },
     {
       "id": 16,
@@ -216,7 +247,7 @@
       "price": 400000,
       "image": "/images/inventory/Packward Twelve Convertible Victoria.jpg",
       "isFeatured": false,
-      "likes": 6
+      "likes": 0
     },
     {
       "id": 17,
@@ -226,7 +257,7 @@
       "price": 150000,
       "image": "/images/inventory/Hot rod mercury.jpg",
       "isFeatured": false,
-      "likes": 2
+      "likes": 0
     },
     {
       "id": 18,
@@ -261,14 +292,37 @@
   ],
   "garage": [
     {
-      "id": 1745745416608,
-      "make": "Alfa",
-      "model": "Romeo",
-      "year": 1939,
-      "price": 19800000,
-      "image": "/images/inventory/alfa-romeo.jpg",
+      "id": 1745747232507,
+      "make": "Toyota",
+      "model": "Camry",
+      "year": 2022,
+      "price": 24999,
+      "image": "/images/inventory/toyota-camry.jpg",
       "isFeatured": false,
-      "originalId": 7
+      "likes": 0,
+      "originalId": 1
+    },
+    {
+      "id": 1745747233489,
+      "make": "Fiat",
+      "model": "500",
+      "year": 1945,
+      "price": 22999,
+      "image": "/images/inventory/Fiat 500.jpg",
+      "isFeatured": false,
+      "likes": 0,
+      "originalId": 3
+    },
+    {
+      "id": 1745747236223,
+      "make": "Packward",
+      "model": "Twelve convertible Victoria",
+      "year": 1934,
+      "price": 400000,
+      "image": "/images/inventory/Packward Twelve Convertible Victoria.jpg",
+      "isFeatured": false,
+      "likes": 0,
+      "originalId": 16
     }
   ]
 }
